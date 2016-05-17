@@ -1,0 +1,38 @@
+Geoffrey Pard
+CS 261 - 400
+Written Answers for Amortized Cost
+
+
+Question 1:
+How many cost units are spent in the entire process of performing 32 consecutive push 
+operations on an empty array which starts out at capacity 8, assuming that the array 
+will double in capacity each time new item is added to an already full dynamic array?
+As N (ie. the number of pushes) grows large, under this strategy for resizing, what
+is the big-oh complexity for a push?
+      
+    Cost Units: 56
+    Big-Oh Complexity: O(1)+
+
+Question 2:
+How many cost units are spent in the entire process of performing 32 consecutive push
+operations on an empty array which starts out at capacity 8, assuming that the array will
+grow by a constant 2 spaces each time new item is added to an already full dynamic array?
+As N (ie. the number of pushes) grows large, under this strategy for resizing, what is the
+big-oh complexity for a push?
+      
+    Cost Units: 260
+    Big-Oh Complexity: O(n)
+
+Question 3:
+Suppose that a dynamic array stack doubles its capacity when it is full, and shrinks
+(on Pop only) its capacity by half when the array is half full or less. Can you devise a
+sequence of N push() and pop() operations which will result in poor performance (O(N^2)
+total cost)? How might you adjust the array's shrinking policy to avoid this? (Hint: You
+may assume that the initial capacity of the array is N/2.)
+
+    If you call push() until the stack reaches capacity, the capacity will double. Calling pop() 
+	removes a value from the stack, which makes the stack size less than half of capacity and 
+	it shrinks per the stipulations.
+	  
+    To get away from this mechanism, change the shrinking stipulation to the following: 
+	Shrink (n/2) when size is n/4.
